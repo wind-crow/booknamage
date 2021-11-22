@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+	<meta charset='utf-8'>
+	<title>查询图书</title>
+	<style>
+		#table1{
+			border-collapse: collapse;
+			width: 50%;
+			border: 1px solid black;
+            margin: 0 auto;
+		}
+		#th1{
+			height: 30px;
+			border: 1px solid black;
+		}
+		#td1{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+    <table id="table1">
+        <thead>
+            <tr>
+                <th id="th1">书籍编号</th>
+                <th id="th1">书籍名称</th>
+                <th id="th1">作者</th>
+                <th id="th1">出版商</th>
+                <th id="th1">购买日期</th>
+                <th id="th1">借阅次数</th>
+                <th id="th1">是否借出</th>
+                <th style="text-align: center;">操作</th>
+            </tr>
+        </thead>
+        <?php foreach($books as $book): ?>
+       <tr>
+           <td id="td1"><?php echo $book['code']; ?></td>
+           <td id="td1"><?php echo $book['bookname']; ?></td>
+           <td id="td1"><?php echo $book['writer']; ?></td>
+           <td id="td1"><?php echo $book['publisher']; ?></td>
+           <td id="td1"><?php echo $book['buydate']; ?></td>
+           <td id="td1"><?php echo $book['number']; ?></td>
+           <td id="td1"><?php echo $book['isloan']; ?></td>
+           <td id="td1" style="text-align: center;">
+            <a href="borrowbook.php?bookname=<?php echo $book['bookname'] ?>" 
+                onclick="return confirm('是否确定借走这本书?')">借书</a>&nbsp;|
+            <a href="repaybook.php?bookname=<?php echo $book['bookname'] ?>"
+                onclick="return confirm('是否确定要还这本书?')">还书</a>&nbsp;
+            </td>
+       </tr>
+       <?php endforeach; ?>
+    </table>
+</body>
+</HTML>
