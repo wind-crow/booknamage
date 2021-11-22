@@ -1,10 +1,6 @@
 <?php
 
-$dbuser='root';
-$dbpassword='root';
-$dbname='bookmanage';
-$dbhost='localhost';
-$dbport='3306';
+include("./config.inc");
 
 $html="";
 if(!@mysqli_connect($dbhost,$dbuser,$dbpassword,$dbname)){

@@ -3,11 +3,7 @@
  * Created by runner.han
  * There is nothing new under the sun
  */
-$dbuser='root';
-$dbpassword='root';
-$dbname='bookmanage';
-$dbhost='localhost';
-$dbport='3306';
+include("config.inc");
 $mes_connect='';
 $mes_create='';
 $mes_data='';
@@ -16,7 +12,7 @@ $mes_ok='';
 if(isset($_POST['submit'])){
     //判断数据库连接
     if(!@mysqli_connect($dbhost, $dbuser, $dbpassword)){
-        exit('数据连接失败，请仔细检查inc/config.inc的配置');
+        exit('数据连接失败，请仔细检查config.inc的配置');
     }
     $link=mysqli_connect($dbhost, $dbuser, $dbpassword);
     $mes_connect.="<p class='notice'>数据库连接成功!</p>";
