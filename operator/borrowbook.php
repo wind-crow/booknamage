@@ -55,6 +55,7 @@
                     echo "更新信息错误...".mysqli_error($link);
                     exit;
                 }
+                header("refresh: 1; url=index.php");
                 echo "<br>success";
             }
         }

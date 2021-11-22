@@ -115,12 +115,13 @@ if(isset($_POST['submit'])){
     //创建借阅信息表
     $creat_lender_book =
     "create table if not exists `lender_book`(
-        `lender_stuid` int(10) not null primary key,
+        `lender_stuid` int(10) not null,
         `lender_name` varchar(30) not null,
         `book_code` int(10) not null,
         `bookname` varchar(100) not null,
         `loandate` varchar(12) not null,
-        `returndate` varchar(12) not null
+        `returndate` varchar(12) not null,
+        primary key(lender_stuid,book_code)
     )ENGINE=MyISAM default charset=utf8";
     if(!@mysqli_query($link,$creat_lender_book)){
          exit('创建lender_book表失败，请仔细检查当前用户是否有操作权限');

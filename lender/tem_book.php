@@ -20,7 +20,6 @@
 			exit;
 		}
 
-
 		//创建一个视图
 		$sql_create_view = "
 			create or replace view tembooks(lender,code,bookname,writer,publisher,number,isloan,returndate) 
